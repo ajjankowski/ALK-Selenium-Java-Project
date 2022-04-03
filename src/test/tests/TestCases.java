@@ -57,8 +57,8 @@ public class TestCases extends BaseTest {
                 screenshotTaker.takeScreenshot(i, testName, driver);
                 test.log(Status.PASS, "Assertion " + i + " passed",
                         new ScreenshotTaker().screenshotForReport(i, testName, driver));
-            } catch (Exception exception) {
-                test.log(Status.FAIL, "Assertion " + i + " passed",
+            } catch (Exception e) {
+                test.log(Status.FAIL, "Assertion " + i + " failed",
                         new ScreenshotTaker().screenshotForReport(i, testName, driver));
             }
         }
