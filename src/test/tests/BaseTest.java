@@ -8,13 +8,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import utils.ScreenshotTaker;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected static WebDriver driver;
-    protected static ScreenshotTaker screenshotTaker = new ScreenshotTaker();
     protected static ExtentHtmlReporter htmlReporter;
     protected static ExtentReports extentReports;
 
@@ -36,7 +34,6 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://joemonster.org/logowanie");
     }
 
     @AfterMethod
