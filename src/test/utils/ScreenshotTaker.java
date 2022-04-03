@@ -12,6 +12,11 @@ import java.io.IOException;
 
 public class ScreenshotTaker {
 
+    public static MediaEntityModelProvider screenshotForReport(int screenNumber, String testName, WebDriver driver) throws IOException {
+        String path = new ScreenshotTaker().takeScreenshot(screenNumber, testName, driver);
+        return MediaEntityBuilder.createScreenCaptureFromPath(path).build();
+    }
+
     public String takeScreenshot(int screenNumber, String testName, WebDriver driver) throws IOException {
         File scrFile = ((TakesScreenshot) driver).
                 getScreenshotAs(OutputType.FILE);
@@ -19,10 +24,5 @@ public class ScreenshotTaker {
                 + screenNumber + "_" + testName + ".png";
         FileUtils.copyFile(scrFile, new File(path));
         return path;
-    }
-
-    public MediaEntityModelProvider screenshotForReport(int screenNumber, String testName, WebDriver driver) throws IOException {
-        String path = new ScreenshotTaker().takeScreenshot(screenNumber, testName, driver);
-        return MediaEntityBuilder.createScreenCaptureFromPath(path).build();
     }
 }
