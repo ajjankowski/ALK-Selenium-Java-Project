@@ -4,15 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import tests.BaseTest;
 
 import java.util.List;
 
-public class LoginPage extends BaseTest {
+public class LoginPage {
+    private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        BaseTest.driver = driver;
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
 
     @FindBy(xpath = "//span[@tabindex='-1' and text()='Zaakceptuj wszystkie']")
@@ -34,7 +34,7 @@ public class LoginPage extends BaseTest {
         cookieAcceptButton.get(1).click();
     }
 
-    public void loginWrongCredentials(String username, String password) {
+    public void loginUser(String username, String password) {
         userNameInput.click();
         userNameInput.clear();
         userNameInput.sendKeys(username);
