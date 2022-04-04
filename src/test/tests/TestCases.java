@@ -124,7 +124,7 @@ public class TestCases extends BaseTest {
 
     @DataProvider(name = "loginData")
     public Object[][] createData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"seleniumtest", "theboco10"}
         };
     }
