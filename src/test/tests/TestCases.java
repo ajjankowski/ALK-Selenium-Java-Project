@@ -5,6 +5,7 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProfilePage;
@@ -25,8 +26,10 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCases extends BaseTest {
 
+    @Parameters({"gender", "email", "day", "month", "year"})
     @Test
-    public void testInvalidUserRegistration() throws IOException {
+    public void testInvalidUserRegistration(String gender, String email,
+                                            int day, int month, int year) throws IOException {
         String testName = "InvalidUserRegistration";
         ExtentTest test = extentReports.createTest(testName);
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -38,8 +41,8 @@ public class TestCases extends BaseTest {
         registrationPage.acceptCookies();
         assertEquals(link, driver.getCurrentUrl());
         registrationPage.registerUser(
-                login, "male", "wrongemail@",
-                11, 4, 20, true);
+                login, gender, email,
+                day, month, year, true);
         assertEquals(link, driver.getCurrentUrl());
         test.log(Status.PASS, "User cannot register with wrong email",
                 ScreenshotTaker.screenshotForReport(1, testName, driver));

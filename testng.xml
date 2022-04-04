@@ -2,6 +2,11 @@
 
 <suite name="Suite1" verbose="1" >
     <test name="JoeMonster Test" enabled="true">
+        <parameter name="gender" value="male"/>
+        <parameter name="email" value="wrongemail@"/>
+        <parameter name="day" value="11"/>
+        <parameter name="month" value="4"/>
+        <parameter name="year" value="20"/>
         <classes>
             <class name="tests.TestCases"/>
         </classes>
