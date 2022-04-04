@@ -5,6 +5,7 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -121,8 +122,15 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
-    @Test
-    public void testAccessToProfileSettings() throws IOException {
+    @DataProvider(name = "loginData")
+    public Object[][] createData() {
+        return new Object[][] {
+                {"seleniumtest", "theboco10"}
+        };
+    }
+
+    @Test(dataProvider = "loginData")
+    public void testAccessToProfileSettings(String login, String password) throws IOException {
         String testName = "AccessToProfileSettings";
         ExtentTest test = extentReports.createTest(testName);
         String link = "https://joemonster.org/logowanie";
@@ -132,10 +140,6 @@ public class TestCases extends BaseTest {
         profilePage.acceptCookies();
         assertEquals(link, driver.getCurrentUrl());
 
-        ExcelReader excel = new ExcelReader(
-                "src/test/resources/LoginData.xlsx", "validData");
-        String login = excel.getCellData(0, 0);
-        String password = excel.getCellData(0, 1);
         loginPage.loginUser(login, password);
         assertEquals("https://joemonster.org/user.php", driver.getCurrentUrl());
 
