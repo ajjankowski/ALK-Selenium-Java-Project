@@ -5,6 +5,7 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -121,8 +122,15 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
-    @Test
-    public void testAccessToProfileSettings() throws IOException {
+    @DataProvider(name = "loginData")
+    public Object[][] createData() {
+        return new Object[][] {
+                {"seleniumtest", "theboco10"}
+        };
+    }
+
+    @Test(dataProvider = "loginData")
+    public void testAccessToProfileSettings(String login, String password) throws IOException {
         String testName = "AccessToProfileSettings";
         ExtentTest test = extentReports.createTest(testName);
         String link = "https://joemonster.org/logowanie";
@@ -132,38 +140,34 @@ public class TestCases extends BaseTest {
         profilePage.acceptCookies();
         assertEquals(link, driver.getCurrentUrl());
 
-        ExcelReader excel = new ExcelReader(
-                "src/test/resources/LoginData.xlsx", "validData");
-        String login = excel.getCellData(0, 0);
-        String password = excel.getCellData(0, 1);
         loginPage.loginUser(login, password);
         assertEquals("https://joemonster.org/user.php", driver.getCurrentUrl());
 
         profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest", profilePage.omnieButtonCheck(), 1, testName);
         test.log(Status.PASS, "'O mnie' link correct", ScreenshotTaker.screenshotForReport(1, testName, driver));
 
-        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/nadeslane", profilePage.nadeslaneButtonCheck(), 2, testName);
-        test.log(Status.PASS, "'Nadesłane' link correct", ScreenshotTaker.screenshotForReport(2, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fbojownik%2Fseleniumtest%2Fkomentarze", profilePage.komentarzeButtonCheck(), 3, testName);
-        test.log(Status.PASS, "'Komentarze' link correct", ScreenshotTaker.screenshotForReport(3, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest", profilePage.szaffaButtonCheck(), 4, testName);
-        test.log(Status.PASS, "'Szaffa' link correct", ScreenshotTaker.screenshotForReport(4, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/fani", profilePage.faniButtonCheck(), 5, testName);
-        test.log(Status.PASS, "'Fani' link correct", ScreenshotTaker.screenshotForReport(5, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fbojownik%2Fkluby", profilePage.klubyButtonCheck(), 6, testName);
-        test.log(Status.PASS, "'Kluby' link correct", ScreenshotTaker.screenshotForReport(6, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/ulubione", profilePage.okejkiButtonCheck(), 7, testName);
-        test.log(Status.PASS, "'Okejki' link correct", ScreenshotTaker.screenshotForReport(7, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fblog%2Fseleniumtest%2Fedytuj-blog%2F", profilePage.blogButtonCheck(), 8, testName);
-        test.log(Status.PASS, "'Blog' link correct", ScreenshotTaker.screenshotForReport(8, testName, driver));
-
-        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/subskrypcje", profilePage.subskrypcjeButtonCheck(), 9, testName);
-        test.log(Status.PASS, "'Subskrypcje' link correct", ScreenshotTaker.screenshotForReport(9, testName, driver));
+//        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/nadeslane", profilePage.nadeslaneButtonCheck(), 2, testName);
+//        test.log(Status.PASS, "'Nadesłane' link correct", ScreenshotTaker.screenshotForReport(2, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fbojownik%2Fseleniumtest%2Fkomentarze", profilePage.komentarzeButtonCheck(), 3, testName);
+//        test.log(Status.PASS, "'Komentarze' link correct", ScreenshotTaker.screenshotForReport(3, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest", profilePage.szaffaButtonCheck(), 4, testName);
+//        test.log(Status.PASS, "'Szaffa' link correct", ScreenshotTaker.screenshotForReport(4, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/fani", profilePage.faniButtonCheck(), 5, testName);
+//        test.log(Status.PASS, "'Fani' link correct", ScreenshotTaker.screenshotForReport(5, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fbojownik%2Fkluby", profilePage.klubyButtonCheck(), 6, testName);
+//        test.log(Status.PASS, "'Kluby' link correct", ScreenshotTaker.screenshotForReport(6, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/ulubione", profilePage.okejkiButtonCheck(), 7, testName);
+//        test.log(Status.PASS, "'Okejki' link correct", ScreenshotTaker.screenshotForReport(7, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/user.php?op=extend&previous_site=%2Fblog%2Fseleniumtest%2Fedytuj-blog%2F", profilePage.blogButtonCheck(), 8, testName);
+//        test.log(Status.PASS, "'Blog' link correct", ScreenshotTaker.screenshotForReport(8, testName, driver));
+//
+//        profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest/subskrypcje", profilePage.subskrypcjeButtonCheck(), 9, testName);
+//        test.log(Status.PASS, "'Subskrypcje' link correct", ScreenshotTaker.screenshotForReport(9, testName, driver));
     }
 }
