@@ -28,7 +28,7 @@ import static org.junit.Assert.assertEquals;
 public class TestCases extends BaseTest {
 
     @Parameters({"gender", "email", "day", "month", "year"})
-    @Test
+    @Test(priority = 0)
     public void testInvalidUserRegistration(String gender, String email,
                                             int day, int month, int year) throws IOException {
         String testName = "InvalidUserRegistration";
@@ -49,7 +49,7 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
-    @Test
+    @Test(priority = 1)
     public void testInvalidUserLogin() throws IOException {
         String testName = "InvalidUserLogin";
         ExtentTest test = extentReports.createTest(testName);
@@ -80,7 +80,7 @@ public class TestCases extends BaseTest {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void testAttemptToRegisterExistingUser() throws IOException {
         String testName = "AttemptToRegisterExistingUser";
         ExtentTest test = extentReports.createTest(testName);
@@ -102,7 +102,7 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
-    @Test
+    @Test(priority = 3)
     public void testCorrectUserLogin() throws IOException {
         String testName = "CorrectUserLogin";
         ExtentTest test = extentReports.createTest(testName);
@@ -129,7 +129,7 @@ public class TestCases extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "loginData")
+    @Test(priority = 4, dataProvider = "loginData")
     public void testAccessToProfileSettings(String login, String password) throws IOException {
         String testName = "AccessToProfileSettings";
         ExtentTest test = extentReports.createTest(testName);
