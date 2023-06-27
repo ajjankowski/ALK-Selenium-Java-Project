@@ -34,6 +34,6 @@ Project is an example of Data Driven Development, using Selenium and TestNG libr
 
 ### Test execution
 
-1. To execute tests run "testng.xml"
-2. Test report will appear in main folder as "TestReport.html"
-3. Screenshots will appear in "src/test/resources/screenshots"
+* To execute tests run "testng.xml"
+* Test report will appear in main folder as "TestReport.html"
+* Screenshots will appear in "src/test/resources/screenshots"
