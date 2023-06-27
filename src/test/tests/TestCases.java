@@ -15,6 +15,7 @@ import utils.ExcelReader;
 import utils.ScreenshotTaker;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -68,7 +69,7 @@ public class TestCases extends BaseTest {
             String login = excel.getCellData(i, 0);
             String password = excel.getCellData(i, 1);
             loginPage.loginUser(login, password);
-            WebDriverWait wait = new WebDriverWait(driver, 5);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             try {
                 wait.until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//b[text()='Niepoprawny login lub hasło :-(']")));
