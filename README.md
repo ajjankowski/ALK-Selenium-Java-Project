@@ -1,6 +1,6 @@
 # DDT-Selenium-Java-TestNG
 
-Project is an example of Data Driven Development, using Selenium and TestNG libraries.
+Project is an example of Data Driven Development.
 
 ### DDT used in project
 * TestNG.xml parameters
@@ -11,7 +11,6 @@ Project is an example of Data Driven Development, using Selenium and TestNG libr
 * Selenium
 * Maven
 * TestNG
-* JUnit
 * Extent Reports
 
 ### Installation (prerequisites)
