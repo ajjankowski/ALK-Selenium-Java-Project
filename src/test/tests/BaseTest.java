@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected static WebDriver driver;
