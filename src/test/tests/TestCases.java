@@ -17,7 +17,7 @@ import utils.ScreenshotTaker;
 import java.io.IOException;
 import java.time.Duration;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 // TODO:
 //       TC1: Invalid user registration to check the validation of the registration form
