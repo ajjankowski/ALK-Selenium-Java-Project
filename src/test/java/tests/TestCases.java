@@ -42,11 +42,11 @@ public class TestCases extends BaseTest {
         driver.get(link);
 
         registrationPage.acceptCookies();
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
         registrationPage.registerUser(
                 login, gender, email,
                 day, month, year, true);
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
         test.log(Status.PASS, "User cannot register with wrong email",
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
@@ -60,7 +60,7 @@ public class TestCases extends BaseTest {
         driver.get(link);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.acceptCookies();
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
 
         ExcelReader excel = new ExcelReader(
                 "src/test/resources/LoginData.xlsx", "invalidData");
@@ -91,7 +91,7 @@ public class TestCases extends BaseTest {
         String link = "https://joemonster.org/rejestracja";
         driver.get(link);
         registrationPage.acceptCookies();
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
 
         ExcelReader excel = new ExcelReader(
                 "src/test/resources/LoginData.xlsx", "validData");
@@ -99,7 +99,7 @@ public class TestCases extends BaseTest {
         registrationPage.registerUser(
                 login, "male", "email@correct.pl",
                 11, 4, 20, false);
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
 
         test.log(Status.PASS, "User cannot register with existing login",
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
@@ -113,7 +113,7 @@ public class TestCases extends BaseTest {
         driver.get(link);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.acceptCookies();
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
 
         ExcelReader excel = new ExcelReader(
                 "src/test/resources/LoginData.xlsx", "validData");
@@ -142,7 +142,7 @@ public class TestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         ProfilePage profilePage = new ProfilePage(driver);
         profilePage.acceptCookies();
-        assertEquals(link, driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), link);
 
         loginPage.loginUser(login, password);
         assertEquals(driver.getCurrentUrl(), "https://joemonster.org/user.php");
