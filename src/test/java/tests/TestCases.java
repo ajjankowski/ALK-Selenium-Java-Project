@@ -120,7 +120,7 @@ public class TestCases extends BaseTest {
         String login = excel.getCellData(0, 0);
         String password = excel.getCellData(0, 1);
         loginPage.loginUser(login, password);
-        assertEquals("https://joemonster.org/user.php", driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), "https://joemonster.org/user.php");
         test.log(Status.PASS, "User correctly logged-in",
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
@@ -145,7 +145,7 @@ public class TestCases extends BaseTest {
         assertEquals(link, driver.getCurrentUrl());
 
         loginPage.loginUser(login, password);
-        assertEquals("https://joemonster.org/user.php", driver.getCurrentUrl());
+        assertEquals(driver.getCurrentUrl(), "https://joemonster.org/user.php");
 
         profilePage.assertUrl("https://joemonster.org/bojownik/seleniumtest", profilePage.omnieButtonCheck(), 1, testName);
         test.log(Status.PASS, "'O mnie' link correct", ScreenshotTaker.screenshotForReport(1, testName, driver));
