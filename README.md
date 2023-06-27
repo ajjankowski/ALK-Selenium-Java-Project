@@ -23,14 +23,14 @@ Project is an example of Data Driven Development, using Selenium and TestNG libr
 
 ### Framework set up
 
-Git:
+* Git:
 
-    git clone https://github.com/ajjankowski/DDT-Selenium-Java-TestNG.git
+  *     git clone https://github.com/ajjankowski/DDT-Selenium-Java-TestNG.git
 
-Manually :
+* Manually :
 
-Fork / Clone repository from [here](https://github.com/ajjankowski/DDT-Selenium-Java-TestNG/archive/refs/heads/main.zip) or download zip and set
-it up in your local workspace.
+  * Fork / Clone repository from [here](https://github.com/ajjankowski/DDT-Selenium-Java-TestNG/archive/refs/heads/main.zip) or download zip and set
+  it up in your local workspace.
 
 ### Test execution
 
