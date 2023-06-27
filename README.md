@@ -24,15 +24,16 @@ Project is an example of Data-Driven testing.
 
 * Git:
 
-  *     git clone https://github.com/ajjankowski/DDT-Selenium-Java-TestNG.git
+  *     git clone https://github.com/ajjankowski/DDT-Selenium-TestNG.git
 
 * Manually :
 
-  * Fork / Clone repository from [here](https://github.com/ajjankowski/DDT-Selenium-Java-TestNG/archive/refs/heads/main.zip) or download zip and set
+  * Fork / Clone repository from [here](https://github.com/ajjankowski/DDT-Selenium-TestNG/archive/refs/heads/main.zip) or download zip and set
   it up in your local workspace.
 
 ### Test execution
 
+* Mark "src/test/java" as "Test Sources Root" if needed
 * To execute tests run "testng.xml"
 * Test report will appear in main folder as "TestReport.html"
 * Screenshots will appear in "src/test/resources/screenshots"
