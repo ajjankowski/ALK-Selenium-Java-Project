@@ -27,6 +27,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCases extends BaseTest {
 
+// Using TestNG parameters
     @Parameters({"gender", "email", "day", "month", "year"})
     @Test(priority = 0)
     public void testInvalidUserRegistration(String gender, String email,
@@ -49,6 +50,7 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
+// Using Excel data
     @Test(priority = 1)
     public void testInvalidUserLogin() throws IOException {
         String testName = "InvalidUserLogin";
@@ -129,6 +131,7 @@ public class TestCases extends BaseTest {
         };
     }
 
+// Using DataProvider
     @Test(priority = 4, dataProvider = "loginData")
     public void testAccessToProfileSettings(String login, String password) throws IOException {
         String testName = "AccessToProfileSettings";
