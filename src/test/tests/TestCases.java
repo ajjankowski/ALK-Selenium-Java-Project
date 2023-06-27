@@ -29,7 +29,7 @@ public class TestCases extends BaseTest {
 
 // Using TestNG parameters
     @Parameters({"gender", "email", "day", "month", "year"})
-    @Test(priority = 0)
+    @Test(priority = 1)
     public void testInvalidUserRegistration(String gender, String email,
                                             int day, int month, int year) throws IOException {
         String testName = "InvalidUserRegistration";
@@ -51,7 +51,7 @@ public class TestCases extends BaseTest {
     }
 
 // Using Excel data
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void testInvalidUserLogin() throws IOException {
         String testName = "InvalidUserLogin";
         ExtentTest test = extentReports.createTest(testName);
@@ -82,7 +82,7 @@ public class TestCases extends BaseTest {
         }
     }
 
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void testAttemptToRegisterExistingUser() throws IOException {
         String testName = "AttemptToRegisterExistingUser";
         ExtentTest test = extentReports.createTest(testName);
@@ -104,7 +104,7 @@ public class TestCases extends BaseTest {
                 ScreenshotTaker.screenshotForReport(1, testName, driver));
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void testCorrectUserLogin() throws IOException {
         String testName = "CorrectUserLogin";
         ExtentTest test = extentReports.createTest(testName);
@@ -132,7 +132,7 @@ public class TestCases extends BaseTest {
     }
 
 // Using DataProvider
-    @Test(priority = 4, dataProvider = "loginData")
+    @Test(priority = 5, dataProvider = "loginData")
     public void testAccessToProfileSettings(String login, String password) throws IOException {
         String testName = "AccessToProfileSettings";
         ExtentTest test = extentReports.createTest(testName);
