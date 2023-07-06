@@ -24,8 +24,8 @@ public class LoginPage {
     @FindBy(name = "_password")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@value='Zaloguj się']")
-    private WebElement loginButton;
+    @FindBy(xpath = "//input[@type='submit']")
+    private List<WebElement> loginButton;
 
     @FindBy(xpath = "//b[text()='Niepoprawny login lub hasło :-(']")
     private WebElement wrongLoginAlert;
@@ -41,6 +41,6 @@ public class LoginPage {
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(password);
-        loginButton.click();
+        loginButton.get(1).click();
     }
 }
