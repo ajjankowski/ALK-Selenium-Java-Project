@@ -20,13 +20,13 @@ public class ProfilePage {
     }
 
     @FindBy(xpath = "//span[@tabindex='-1' and text()='Zaakceptuj wszystkie']")
-    private List<WebElement> cookieAcceptButton;
+    private WebElement cookieAcceptButton;
 
-    @FindBy(xpath = "//ul[@class='nav nav-tabs']/li")
+    @FindBy(xpath = "//ul[@class='nav-joe nav-tabs-joe']/li")
     private List<WebElement> panelButtons;
 
     public void acceptCookies() {
-        cookieAcceptButton.get(1).click();
+        cookieAcceptButton.click();
     }
 
     public String omnieButtonCheck() {

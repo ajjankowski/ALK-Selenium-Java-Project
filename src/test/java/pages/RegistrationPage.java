@@ -17,13 +17,10 @@ public class RegistrationPage {
     }
 
     @FindBy(xpath = "//span[@tabindex='-1' and text()='Zaakceptuj wszystkie']")
-    private List<WebElement> cookieAcceptButton;
+    private WebElement cookieAcceptButton;
 
     @FindBy(id = "user_register_username")
     private WebElement loginInput;
-
-    @FindBy(xpath = "//img[@src='/images/notok.gif']")
-    private WebElement loginNotUniqueIndicator;
 
     @FindBy(id = "user_register_gender_male_0")
     private WebElement radioButtonMale;
@@ -46,9 +43,6 @@ public class RegistrationPage {
     @FindBy(id = "user_register_accept_rules")
     private WebElement acceptRules;
 
-    @FindBy(xpath = "//div[@class='recaptcha-checkbox-border']")
-    private WebElement captcha;
-
     @FindBy(id = "user_register_accept_rodo")
     private WebElement acceptRodo;
 
@@ -56,7 +50,7 @@ public class RegistrationPage {
     private WebElement submitButton;
 
     public void acceptCookies() {
-        cookieAcceptButton.get(1).click();
+        cookieAcceptButton.click();
     }
 
     public void registerUser(String login, String gender, String email,

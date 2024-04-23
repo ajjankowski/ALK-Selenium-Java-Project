@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-  <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-    </content>
-  </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="7ba291ef-7c9d-4b08-9261-d42355acb20a" />
   </component>

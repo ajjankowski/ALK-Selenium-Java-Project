@@ -16,7 +16,7 @@ public class LoginPage {
     }
 
     @FindBy(xpath = "//span[@tabindex='-1' and text()='Zaakceptuj wszystkie']")
-    private List<WebElement> cookieAcceptButton;
+    private WebElement cookieAcceptButton;
 
     @FindBy(name = "_username")
     private WebElement userNameInput;
@@ -27,11 +27,8 @@ public class LoginPage {
     @FindBy(xpath = "//input[@type='submit']")
     private List<WebElement> loginButton;
 
-    @FindBy(xpath = "//b[text()='Niepoprawny login lub hasło :-(']")
-    private WebElement wrongLoginAlert;
-
     public void acceptCookies() {
-        cookieAcceptButton.get(1).click();
+        cookieAcceptButton.click();
     }
 
     public void loginUser(String username, String password) {
